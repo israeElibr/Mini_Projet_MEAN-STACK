@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=lato:400,700|Nunito:400,700');
+$turquoise:#44ddd096;
+$green :#43967d;
+$light-green:#326e6979;
+$dark-green: rgb(0,
+100,
+80);
+$light:#f8f8f8;
+//update bulma's global variables
+$family-sans-serif:"Nunito",
+sans-serif;
+$primary: $green;
+$link: $light-green;
+//update some bulma'scomponent variables
+$control-border-width: 2px;
+$input-border-color: transparent;
+$input-shadow:none;
+//set custom global styles
+html {
+    background: linear-gradient(to right top, $turquoise, $green);
+}
+
+html,
+body {
+    height: 100%;
+}
