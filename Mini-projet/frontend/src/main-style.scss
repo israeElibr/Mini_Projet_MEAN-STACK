@@ -1,0 +1,26 @@
+//this is where we global styles and chages variables values ..
+//import fonnts (lato   nd Nunito)
+@import url('https://fronts.googleapis.com/css?family=lato:400,700|Nunito:400,700');
+$pinki:pink;
+$pink:#FFB6F1;
+$light-pink:#ABADB4;
+$dark-pink:#DEA5A4;
+$light:white;
+
+//update Bulma's global variables
+$family-sans-serif:"Nunito",sans-serif;
+$primary:$pink;
+$link:$light-pink;
+
+//upadate some bulma's component variables
+$control-border-width:2px;
+$input-border-color:transparent;
+$input-shadow:none;
+
+//set custom global styles (will be aplies to whole app)
+html{
+    background: linear-gradient(to right top, $pinki, $pink);
+}
+html,body{
+    height: 100%;
+}
