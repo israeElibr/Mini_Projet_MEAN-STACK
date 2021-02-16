@@ -1,43 +1,72 @@
-<div class="centered-content">
-    <div class="task-manager-container">
-        <div class="sidebar has-background-white">
-            <h1 class="title has-text-primary" >
-              Lists
-            </h1>
-            <div class="list-menu">
-                <a  class="list-menu-item is-active">
-                    <p>#item1</p>
-                </a>
-                <a  class="list-menu-item">
-                    <p>#item1</p>
-                </a>
-                <a  class="list-menu-item">
-                    <p>#item1</p>
-                </a>
-                <a  class="list-menu-item">
-                    <p>#item1</p>
-                </a>
-                <a  class="list-menu-item">
-                    <p>#item1</p>
-                </a>
-              
-            </div>
-            <button class="button ok has-text-white">+ New list</button>
-        </div>
-        <div class="task-list-container">
-            <h1 class="title has-text-primary" >
-                Tasks
-              </h1>
-           <!-- Element tasks -->
-            <div class="tasks">
-                <p>smth  to do</p>
-            </div>
-            <div class="tasks">
-                <p>smth  to do</p>
-            </div>
-             <div class="tasks complete">
-                <p>smth  to do</p>
-            </div>
-        </div>
+<div class="centered-container">
+  <div class="task-manager-container">
+    <div class="sidebar has-background-white">
+      <h1 class="title has-text-primary ">
+        Lists
+      </h1>
+      
+      <div class="list-menu">
+        <a class="list-menu-item" *ngFor="let list of lists" [routerLink]="['/lists', list._id]" routerLinkActive="is-active">
+          <p>{{ list.title }}</p>
+        </a>
+
+        
+      </div>
+
+      <button class="button is-primary" routerLink="/new-list">+ New List</button>
     </div>
+    
+    <div class="task-list-container has-background-light">
+      <div class="top-bar">
+        <h1 class="title has-text-primary">
+          Tasks
+        </h1>
+        <div class="dropdown is-hoverable">
+          <div class="dropdown-trigger">
+            <button class="button" aria-haspopup="true" >
+              <!-- <span>Settings</span> -->
+              <span class="icon is-small">
+                <i class="fas fa-cog" aria-hidden="true"></i>
+              </span>
+            </button>
+          </div>
+          <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+            <div class="dropdown-content">
+              <div class="dropdown-item">
+                <div class="drop-down-content">
+                  <button class="button" routerLink="./update-list">Update</button>
+                  <button class="button" (click)="deleteList()">Delete</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Tasks -->
+      <div class="task" *ngFor="let task of tasks" (click)="onTaskClick(task)" [ngClass]="{ 'complete': task.completed }">
+        <div class="task-text">
+          <p>{{ task.title }}</p>
+        </div>
+        <div class="task-buttons">
+          <button class="button" [routerLink]="['/lists',listId,'update-task',task._id]">
+            <div class="icon">
+              <i class="fas fa-edit"></i>
+            </div>
+          </button>
+          <button class="button is-danger" (click)="deleteTask(task._id)">
+            <div class="icon">
+              <i class="fas fa-trash"></i>
+            </div>
+          </button>
+
+        </div>
+      </div>
+
+      <h3 class="empty-state-text" *ngIf="(tasks && tasks.length ) === 0 "> There are no tasks here! Click the add button to create a new task.</h3>
+
+      <button class="button circle-add-button is-primary" routerLink="./new-task"> + </button>
+    </div>
+  </div>
 </div>

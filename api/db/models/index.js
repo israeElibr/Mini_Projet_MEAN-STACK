@@ -1,7 +1,7 @@
-const {list}=require('./listmodel');
-const {Task}=require('./taskmodel');
+const { List } = require('./list.model');
+const { Task } = require('./task.model');
+const { User } = require('./user.model')
 
-module.exports={
- list, Task
+module.exports = {
+  List, Task, User
 }
-

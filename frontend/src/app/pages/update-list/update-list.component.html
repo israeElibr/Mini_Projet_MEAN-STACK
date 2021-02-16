@@ -1,0 +1,12 @@
+<div class="centered-container">
+  <div class="modal-box has-background-white">
+    <h1 class="title">Update a list</h1>
+
+    <input #updateListInput class="input is-primary" type="text" placeholder="Please type a the new list name...">
+    <br>
+    <div class="buttons is-right" style="margin-top: 10px;">
+      <button class="button is-medium" routerLink="/">Cancel</button>
+      <button class="button is-primary is-medium" (click)="updateList(updateListInput.value)">Update </button>
+    </div>
+  </div>
+</div>

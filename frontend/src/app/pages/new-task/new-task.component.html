@@ -1,0 +1,12 @@
+<div class="centered-container">
+  <div class="modal-box has-background-white">
+    <h1 class="title">Create a new task</h1>
+
+    <input #createTaskInput class="input " type="text" placeholder="Please type a Task here...">
+    <br>
+    <div class="buttons is-right" style="margin-top: 10px;">
+      <button class="button is-medium" routerLink="/">Cancel</button>
+      <button class="button is-primary is-medium" (click)="createTask(createTaskInput.value)">Create</button>
+    </div>
+  </div>
+</div>
